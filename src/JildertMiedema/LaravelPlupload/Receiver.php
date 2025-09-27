@@ -5,6 +5,8 @@ namespace JildertMiedema\LaravelPlupload;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Symfony\Component\HttpFoundation\File\UploadedFile as SymfonyUploadedFile;
+
 
 class Receiver
 {
@@ -70,7 +72,15 @@ class Receiver
             $this->appendData($filePath, $file);
 
             if ($chunk == $chunks - 1) {
-                $file = new UploadedFile($filePath, $originalName, 'blob', UPLOAD_ERR_OK, true);
+                $symfonyFile = new SymfonyUploadedFile(
+                    $filePath,
+                    $originalName,
+                    null,
+                    UPLOAD_ERR_OK,
+                    true
+                );
+
+                $file = IlluminateUploadedFile::createFromBase($symfonyFile, true);
 
                 $result = $handler($file);
 
