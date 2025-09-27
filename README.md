@@ -13,7 +13,7 @@ Handeling chunked uploads.
 Install using composer 
 
 ```sh
-composer require jildertmiedema/laravel-plupload
+composer require atess/laravel-plupload
 ```
 
 Add the provider to `config/app.php`
