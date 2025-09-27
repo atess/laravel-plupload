@@ -80,7 +80,7 @@ class Receiver
                     true
                 );
 
-                $file = IlluminateUploadedFile::createFromBase($symfonyFile, true);
+                $file = UploadedFile::createFromBase($symfonyFile, true);
 
                 $result = $handler($file);
 
