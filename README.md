@@ -1,7 +1,8 @@
+(Laravel 12 support has been added to this forked version.)
+
+
 laravel-plupload
 ================
-
-(Laravel 12 support has been added to this forked version.)
 
 Laravel plupload support.
 
